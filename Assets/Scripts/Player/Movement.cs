@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public int speed = 60;
 
-    public GameObject camera;
+    public GameObject cameraObj;
     public GameObject playerModel;
 
     private Queue<Vector3> cameraMoveQueue = new Queue<Vector3>();
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
             cameraMoveQueue.Enqueue(new Vector3(move.x, move.z, move.y));
             delayCounter++;
         } else {
-            camera.transform.Translate(cameraMoveQueue.Dequeue()/(100-speed));
+            cameraObj.transform.Translate(cameraMoveQueue.Dequeue()/(100-speed));
             cameraMoveQueue.Enqueue(new Vector3(move.x, move.z, move.y));
         }
     }

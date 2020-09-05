@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d090ef4747e161644983d37d2849db3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightMat: {fileID: 2100000, guid: 99c9c8705d1c62a4794f4adecb0570e2, type: 2}
-  darkMat: {fileID: 2100000, guid: cb6df627e006566428a31903a1787a48, type: 2}
+  backgroundMat: {fileID: 2100000, guid: 99c9c8705d1c62a4794f4adecb0570e2, type: 2}
+  playerMat: {fileID: 2100000, guid: cb6df627e006566428a31903a1787a48, type: 2}
   player: {fileID: 799751292}
   bgPlate: {fileID: 1636740334}
   lightObjs: {fileID: 1441090425}
@@ -446,7 +446,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b6ddcef1002953f48bca1b7d87b2a6c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -664,6 +664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
+  cameraObj: {fileID: 963194225}
+  playerModel: {fileID: 799751292}
 --- !u!1 &1992174788
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +701,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

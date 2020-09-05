@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PerspectiveShift : MonoBehaviour
 {
-    public Material lightMat;
-    public Material darkMat;
+    public Material backgroundMat;
+    public Material playerMat;
 
     public GameObject player;
     public GameObject bgPlate;
@@ -26,14 +26,14 @@ public class PerspectiveShift : MonoBehaviour
         if(Input.GetKeyDown("e")) {
             toggled = !toggled;
             if(toggled) {
-                player.GetComponent<Renderer>().material = lightMat;
-                bgPlate.GetComponent<Renderer>().material = darkMat;
+                playerMat.SetColor("_Color", Color.white);
+                backgroundMat.SetColor("_Color", Color.black);
 
                 lightObjs.SetActive(false);
                 darkObjs.SetActive(true);
             } else {
-                player.GetComponent<Renderer>().material = darkMat;
-                bgPlate.GetComponent<Renderer>().material = lightMat;
+                playerMat.SetColor("_Color", Color.black);
+                backgroundMat.SetColor("_Color", Color.white);
 
                 lightObjs.SetActive(true);
                 darkObjs.SetActive(false);

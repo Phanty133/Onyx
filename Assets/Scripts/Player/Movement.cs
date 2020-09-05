@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) {
             moveDelayCounter = moveDelayCounter < 10 ? moveDelayCounter+1 : 10;
-            Debug.Log(moveDelayCounter);
         } else {
             moveDelayCounter = 0;
         }

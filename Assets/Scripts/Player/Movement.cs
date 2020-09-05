@@ -5,6 +5,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public int speed = 60;
+
+    public GameObject camera;
+    public GameObject playerModel;
+
+    private Queue<Vector3> cameraMoveQueue = new Queue<Vector3>();
+    private int delayCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,13 @@ public class Movement : MonoBehaviour
             move += -transform.right;
         if(Input.GetKey("d"))
             move += transform.right;
-        transform.Translate(move/(100-speed));
+        playerModel.transform.Translate(move/(100-speed));
+        if(delayCounter < 60) {
+            cameraMoveQueue.Enqueue(new Vector3(move.x, move.z, move.y));
+            delayCounter++;
+        } else {
+            camera.transform.Translate(cameraMoveQueue.Dequeue()/(100-speed));
+            cameraMoveQueue.Enqueue(new Vector3(move.x, move.z, move.y));
+        }
     }
 }
